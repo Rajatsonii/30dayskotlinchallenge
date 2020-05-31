@@ -10,6 +10,10 @@
             name="viewModel"
             type="com.kotlinchallenge30days.addaddressscreen.AddAddressViewModel" />
 
+        <variable
+            name="addressObj"
+            type="com.kotlinchallenge30days.database.Address" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,6 +55,7 @@
                     android:background="@drawable/bg_white_rounded"
                     android:imeOptions="actionNext"
                     android:inputType="text"
+                    android:text="@{addressObj.name}"
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingTop="@dimen/_2sdp"
                     android:paddingRight="@dimen/_10sdp"
@@ -67,7 +72,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etContactNumber"
-
+                    android:text="@{addressObj.phone}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/tvContactNumber"
@@ -92,7 +97,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etEmailAddress"
-
+                    android:text="@{addressObj.email}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/tvEmailAddress"
@@ -126,7 +131,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etSociety"
-
+                    android:text="@{addressObj.society}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/tvSociety"
@@ -150,7 +155,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etLandmark"
-
+                    android:text="@{addressObj.landmark}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/tvLandmark"
@@ -174,7 +179,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etArea"
-
+                    android:text="@{addressObj.area}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/tvArea"
@@ -199,7 +204,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etCity"
-
+                    android:text="@{addressObj.city}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/tvCity"
@@ -223,7 +228,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etStateName"
-
+                    android:text="@{addressObj.state}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/tvState"
@@ -248,7 +253,7 @@
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/etPincode"
-
+                    android:text="@{addressObj.pincode}"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_below="@+id/tvPincode"

@@ -100,9 +100,24 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_10ssp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEdit"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/bg_primary_rounded"
+            android:gravity="center_horizontal"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="@string/edit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

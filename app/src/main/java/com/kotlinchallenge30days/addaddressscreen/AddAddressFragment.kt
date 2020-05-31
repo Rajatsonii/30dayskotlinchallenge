@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.kotlinchallenge30days.R
+import com.kotlinchallenge30days.database.Address
 import com.kotlinchallenge30days.database.AddressDatabase
 import com.kotlinchallenge30days.database.AddressDatabaseDao
 import com.kotlinchallenge30days.databinding.FragmentAddAddressBinding
@@ -22,6 +23,7 @@ class AddAddressFragment : Fragment() {
     private lateinit var mViewModel: AddAddressViewModel
     lateinit var addressDatabaseDao: AddressDatabaseDao
     lateinit var binding: FragmentAddAddressBinding
+    var addressObj: Address? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,16 +49,30 @@ class AddAddressFragment : Fragment() {
         binding.lifecycleOwner = this
         setObservable()
         setListener()
+
+        val args = AddAddressFragmentArgs.fromBundle(requireArguments())
+        addressObj = args.address
+        if (addressObj != null) {
+            binding.addressObj = addressObj
+        }
     }
 
     private fun setObservable() {
         mViewModel.addressInsertDone.observe(viewLifecycleOwner, Observer { insertDone ->
             if (insertDone) {
-                Toast.makeText(
-                    requireActivity(),
-                    "Address Inserted Successfully",
-                    Toast.LENGTH_LONG
-                ).show()
+                if (addressObj == null) {
+                    Toast.makeText(
+                        requireActivity(),
+                        "Address Inserted Successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        requireActivity(),
+                        "Address Updated Successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
                 this.findNavController()
                     .navigate(R.id.action_addAddressFragment_to_addressListFragment)
             }
@@ -67,17 +83,34 @@ class AddAddressFragment : Fragment() {
     private fun setListener() {
         btnSave.setOnClickListener {
             if (isValid()) {
-                mViewModel.addAddress(
-                    etName.text.toString(),
-                    etContactNumber.text.toString(),
-                    etEmailAddress.text.toString(),
-                    etSociety.text.toString(),
-                    etLandmark.text.toString(),
-                    etCity.text.toString(),
-                    etPincode.text.toString(),
-                    etStateName.text.toString(),
-                    etArea.text.toString()
-                )
+                if (addressObj == null) {
+                    mViewModel.addAddress(
+                        etName.text.toString(),
+                        etContactNumber.text.toString(),
+                        etEmailAddress.text.toString(),
+                        etSociety.text.toString(),
+                        etLandmark.text.toString(),
+                        etCity.text.toString(),
+                        etPincode.text.toString(),
+                        etStateName.text.toString(),
+                        etArea.text.toString()
+                    )
+                } else {
+                    addressObj?.id?.let { it1 ->
+                        mViewModel.updateAddress(
+                            it1,
+                            etName.text.toString(),
+                            etContactNumber.text.toString(),
+                            etEmailAddress.text.toString(),
+                            etSociety.text.toString(),
+                            etLandmark.text.toString(),
+                            etCity.text.toString(),
+                            etPincode.text.toString(),
+                            etStateName.text.toString(),
+                            etArea.text.toString()
+                        )
+                    }
+                }
             }
         }
     }

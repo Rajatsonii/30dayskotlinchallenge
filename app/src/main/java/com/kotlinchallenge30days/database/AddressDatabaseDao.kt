@@ -1,15 +1,15 @@
 package com.kotlinchallenge30days.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface AddressDatabaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(night: Address)
+    fun insert(address: Address)
+
+    @Update
+    fun update(address: Address)
 
     @Query("SELECT * FROM address")
     fun getAllAddress(): List<Address>

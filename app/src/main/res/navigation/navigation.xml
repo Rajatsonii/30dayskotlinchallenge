@@ -20,5 +20,9 @@
             android:id="@+id/action_addAddressFragment_to_addressListFragment"
             app:destination="@id/addressListFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="address"
+            app:argType="com.kotlinchallenge30days.database.Address"
+            app:nullable="true" />
     </fragment>
 </navigation>

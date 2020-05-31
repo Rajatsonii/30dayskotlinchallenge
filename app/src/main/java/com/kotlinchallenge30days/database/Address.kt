@@ -3,6 +3,7 @@ package com.kotlinchallenge30days.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class Address(
@@ -31,4 +32,4 @@ data class Address(
     @ColumnInfo(name = "pincode")
     var pincode: String = ""
 
-)
+) : Serializable

@@ -60,6 +60,11 @@ class AddressListFragment : Fragment() {
             AddressAdapter(requireActivity()) { position, address, view ->
                 when (view.id) {
                     R.id.tvRemove -> addressListViewModel.removeAddresses(address.id)
+                    R.id.tvEdit -> this.findNavController().navigate(
+                        AddressListFragmentDirections.actionAddressListFragmentToAddAddressFragment(
+                            address
+                        )
+                    )
                 }
             }
 
@@ -81,8 +86,11 @@ class AddressListFragment : Fragment() {
                 viewLifecycleOwner,
                 Observer { shouldObserve ->
                     if (shouldObserve) {
-                        this.findNavController()
-                            .navigate(R.id.action_addressListFragment_to_addAddressFragment)
+                        this.findNavController().navigate(
+                            AddressListFragmentDirections.actionAddressListFragmentToAddAddressFragment(
+                                null
+                            )
+                        )
                         addressListViewModel.doneNavigateToAddAddress()
                     }
                 })

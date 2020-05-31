@@ -63,9 +63,48 @@ class AddAddressViewModel(
         }
     }
 
+    private suspend fun udpate(address: Address) {
+        withContext(Dispatchers.IO) {
+            addressDatabaseDao.update(address)
+        }
+    }
+
+    fun updateAddress(
+        id: Long,
+        name: String,
+        phone: String,
+        email: String,
+        society: String,
+        landmark: String,
+        city: String,
+        pincode: String,
+        state: String,
+        area: String
+    ) {
+        displayLoading(true)
+        uiScope.launch {
+            val address = Address(
+                id = id,
+                name = name,
+                phone = phone,
+                email = email,
+                society = society,
+                landmark = landmark,
+                area = area,
+                city = city,
+                state = state,
+                pincode = pincode
+            )
+            udpate(address)
+            displayLoading(false)
+            _addressInsertDone.value = true
+        }
+    }
+
     fun displayLoading(isLoading: Boolean) {
         _isLoading.value = isLoading
     }
+
 }
 
 

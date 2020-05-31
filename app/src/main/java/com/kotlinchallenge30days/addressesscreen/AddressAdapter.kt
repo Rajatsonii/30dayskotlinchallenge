@@ -31,6 +31,7 @@ class AddressAdapter(
             binding.address = item
             binding.executePendingBindings()
             binding.tvRemove.setOnClickListener { addressListener(adapterPosition, item, it) }
+            binding.tvEdit.setOnClickListener { addressListener(adapterPosition, item, it) }
         }
 
         companion object {
