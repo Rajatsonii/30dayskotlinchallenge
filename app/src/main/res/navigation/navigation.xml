@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/addressListFragment">
+
+    <fragment
+        android:id="@+id/addressListFragment"
+        android:name="com.kotlinchallenge30days.addressesscreen.AddressListFragment"
+        android:label="AddressListFragment">
+        <action
+            android:id="@+id/action_addressListFragment_to_addAddressFragment"
+            app:destination="@id/addAddressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAddressFragment"
+        android:name="com.kotlinchallenge30days.addaddressscreen.AddAddressFragment"
+        android:label="AddAddressFragment">
+        <action
+            android:id="@+id/action_addAddressFragment_to_addressListFragment"
+            app:destination="@id/addressListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

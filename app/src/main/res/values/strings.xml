@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">30DaysKotlinChallenge</string>
+    <string name="add_new_address">Add New Address</string>
+    <string name="remove">REMOVE</string>
+    <string name="save">Save</string>
+
+    <string name="err_fullname">Please enter full name</string>
+    <string name="err_enter_phone">Please Enter Phone</string>
+    <string name="err_email">Please enter email</string>
+    <string name="err_society">Please enter Society</string>
+    <string name="err_landmark">Please enter Landmark</string>
+    <string name="err_area">Please enter Area</string>
+    <string name="err_city">Please enter city</string>
+    <string name="err_state">Please enter State</string>
+    <string name="err_pincode">Please enter Pincode</string>
+    <string name="full_name">Full Name</string>
+    <string name="pincode">Pincode</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="email_address">Email Address</string>
+    <string name="address">Address</string>
+    <string name="apartment_society">Apartment / Society</string>
+    <string name="landmark">Landmark</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="area">Area</string>
+</resources>
